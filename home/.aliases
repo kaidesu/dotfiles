@@ -1,0 +1,45 @@
+#!/bin/sh
+
+# Enable aliases to be ran as sudo
+alias sudo='sudo '
+
+# Lock the screen (when going AFK)
+alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
+
+# Flush the DNS
+alias dnsflush="dscacheutil -flushcache"
+
+# Directory listings
+alias ls="ls -G -h -p"
+alias ll="ls -l -G -h -p"
+
+# Show/hide hidden files in Finder
+alias show="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
+alias hide="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
+
+# Reload the shell
+alias reload="exec $SHELL -l"
+
+# Print each PATH entry on a separate line
+alias path="echo -e ${PATH//:/\\n}"
+
+# Homestead
+alias homestead='function __homestead() {
+    if [[ $@ == "config" ]]; then
+        command open ~/Homestead/Homestead.yaml
+    else
+        (cd ~/Homestead && vagrant $*);
+    fi
+}; __homestead'
+
+# Tailwind CSS
+alias tailwind="./node_modules/.bin/tailwind"
+
+# Love2D
+alias love="/Applications/love.app/Contents/MacOS/love"
+
+# Use local copy of PHPUnit over globally installed PHPUnit
+alias phpunit="./vendor/bin/phpunit"
+
+# Reset Git repository and clear any newly added files
+alias nah="git reset --hard;git clean -df"

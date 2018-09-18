@@ -1,0 +1,9 @@
+# Base
+export PATH=$PATH:.
+
+# Brew
+export PATH=/usr/local/sbin:$PATH
+export PATH=/usr/local/bin:$PATH
+
+# Composer
+export PATH=$HOME/.composer/vendor/bin:$PATH
