@@ -1,5 +1,5 @@
 # dotfiles
-Inspired and based off of the [https://github.com/atomantic/dotfiles](MacOS bot). These are my personal dotfiles. I strongly suggest _not_ using these are your defaults as they're tailored to the way I work. Feel free to poke around and get inspired!
+Inspired and based off of the [MacOS bot](https://github.com/atomantic/dotfiles). These are my personal dotfiles. I strongly suggest _not_ using these are your defaults as they're tailored to the way I work. Feel free to poke around and get inspired!
 
 ## Installation
 ```
@@ -12,3 +12,5 @@ cd ~/.dotfiles
 # Run the installer
 ./install.sh
 ```
+
+<p align="center"><img src="/screenshot.png?raw=true"></p>
