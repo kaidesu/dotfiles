@@ -7,3 +7,6 @@ export PATH=/usr/local/bin:$PATH
 
 # Composer
 export PATH=$HOME/.composer/vendor/bin:$PATH
+
+# Anaconda
+export PATH=/usr/local/anaconda3/bin:$PATH

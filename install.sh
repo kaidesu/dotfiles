@@ -3,10 +3,18 @@
 source ./lib/echos.sh
 source ./lib/installers.sh
 
+#######################################
+# Greetings
+#######################################
 bot "01001000 01100101 01101100 01101100 01101111"
 
+#######################################
+# Configure GitHub
+#######################################
 grep 'user = GITHUBUSER' ./home/.gitconfig > /dev/null 2>&1
 if [[ $? = 0 ]]; then
+    action "configuring git"
+
     echo -e "\n"
     read -r -p "What is your github username? " githubuser
 
@@ -66,7 +74,9 @@ if [[ $? = 0 ]]; then
     ok
 fi
 
-# Set up ZSH
+#######################################
+# Install and Configure ZSH
+#######################################
 action "installing/updating zsh"
 install_brew zsh
 
@@ -78,12 +88,19 @@ if [[ "$CURRENTSHELL" != "/usr/local/bin/zsh" ]]; then
     ok
 fi
 
-action "installing spaceship ZSH theme"
 unlink /Users/$(whoami)/.oh-my-zsh/custom/themes/spaceship.zsh-theme > /dev/null 2>&1
 ln -s ~/.dotfiles/zsh/themes/spaceship/spaceship.zsh-theme /Users/$(whoami)/.oh-my-zsh/custom/themes/spaceship.zsh-theme
 
-# Symlink dotfiles
-bot "creating symlinks for dotfiles..."
+#######################################
+# Install Anaconda and Python
+#######################################
+action "installing anaconda"
+install_anaconda
+
+#######################################
+# Symlink Dotfiles
+#######################################
+action "symlinking dotfiles"
 pushd home > /dev/null 2>&1
 now=$(date +"%Y.%m.%d.%H.%M.%S")
 
@@ -108,9 +125,13 @@ done
 
 popd > /dev/null 2>&1
 
-#########################################
+#######################################
+# Configure Various System Settings
+#######################################
+
+#######################################
 bot "Standard System Changes"
-#########################################
+#######################################
 
 running "Disable the crash reporter"
 defaults write com.apple.helpviewer DevMode -bool true;ok
@@ -118,9 +139,9 @@ defaults write com.apple.helpviewer DevMode -bool true;ok
 running "Check for software updates daily, not just once per week"
 defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1;ok
 
-#########################################
+#######################################
 bot "System Input Changes"
-#########################################
+#######################################
 
 running "Disable 'natural' (Lion-style) scrolling"
 defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false;ok
@@ -138,9 +159,9 @@ running "Set a blazingly fast keyboard repeat rate"
 defaults write NSGlobalDomain KeyRepeat -int 2
 defaults write NSGlobalDomain InitialKeyRepeat -int 10;ok
 
-#########################################
+#######################################
 bot "System Display Changes"
-#########################################
+#######################################
 
 running "Enable subpixel font rendering on non-Apple LCDs"
 defaults write NSGlobalDomain AppleFontSmoothing -int 2;ok

@@ -45,3 +45,14 @@ function install_yarn() {
     fi
     ok
 }
+
+function install_anaconda() {
+    running "conda -V"
+    conda -V
+    if [[ $? != 0 ]]; then
+        action "Anaconda not found, installing via homebrew"
+        install_cask anaconda;ok
+    else
+        running "anaconda";ok
+    fi
+}
