@@ -43,3 +43,4 @@ alias phpunit="./vendor/bin/phpunit"
 
 # Reset Git repository and clear any newly added files
 alias nah="git reset --hard;git clean -df"
+alias conflicts="git ls-files -u"

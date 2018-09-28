@@ -91,6 +91,19 @@ fi
 unlink /Users/$(whoami)/.oh-my-zsh/custom/themes/spaceship.zsh-theme > /dev/null 2>&1
 ln -s ~/.dotfiles/zsh/themes/spaceship/spaceship.zsh-theme /Users/$(whoami)/.oh-my-zsh/custom/themes/spaceship.zsh-theme
 
+unlink /Users/$(whoami)/.oh-my-zsh/custom/themes/powerlevel9k.zsh-theme > /dev/null 2>&1
+ln -s ~/.dotfiles/zsh/themes/powerlevel9k/powerlevel9k.zsh-theme /Users/$(whoami)/.oh-my-zsh/custom/themes/powerlevel9k.zsh-theme
+
+PS3="Please select your desired ZSH theme: "
+options=("powerlevel9k" "spaceship")
+select opt in "${options[@]}";
+
+do
+  echo "You picked $opt"
+  sed -i '' 's/SELECTEDZSHTHEME/'$opt'/' ./home/.zshrc;
+  break;
+done
+
 #######################################
 # Install Anaconda and Python
 #######################################
