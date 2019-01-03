@@ -46,6 +46,16 @@ function install_yarn() {
     ok
 }
 
+function install_composer() {
+    running "composer -v"
+    composer -v
+    if [[ $? != 0 ]]; then
+        action "composer not found, installing via homebrew"
+        brew install composer
+    fi
+    ok
+}
+
 function install_anaconda() {
     running "conda -V"
     conda -V

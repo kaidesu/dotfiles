@@ -111,6 +111,42 @@ action "installing anaconda"
 install_anaconda
 
 #######################################
+# Install Node
+#######################################
+action "installing node"
+install_node
+
+#######################################
+# Install Yarn
+#######################################
+action "installing yarn"
+install_yarn
+
+#######################################
+# Install Composer
+#######################################
+action "installing composer"
+install_composer
+
+#######################################
+# Install Laravel Installer
+#######################################
+action "installing laravel installer"
+composer global require laravel/installer
+
+#######################################
+# Install Fusion Downloader
+#######################################
+action "installing fusioncms downloader"
+composer global require efelle/fusioncms-downloader
+
+#######################################
+# Install Visual Studio Code
+#######################################
+action "installing visual studio code"
+brew cask install visual-studio-code
+
+#######################################
 # Symlink Dotfiles
 #######################################
 action "symlinking dotfiles"
