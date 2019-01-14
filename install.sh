@@ -105,12 +105,6 @@ do
 done
 
 #######################################
-# Install Anaconda and Python
-#######################################
-action "installing anaconda"
-install_anaconda
-
-#######################################
 # Install Node
 #######################################
 action "installing node"
@@ -139,12 +133,6 @@ composer global require laravel/installer
 #######################################
 action "installing fusioncms downloader"
 composer global require efelle/fusioncms-downloader
-
-#######################################
-# Install Visual Studio Code
-#######################################
-action "installing visual studio code"
-brew cask install visual-studio-code
 
 #######################################
 # Symlink Dotfiles
