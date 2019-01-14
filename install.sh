@@ -117,10 +117,22 @@ action "installing yarn"
 install_yarn
 
 #######################################
+# Install PHP
+#######################################
+action "installing php"
+install_php
+
+#######################################
 # Install Composer
 #######################################
 action "installing composer"
 install_composer
+
+#######################################
+# Install Laravel Valet
+#######################################
+action "installing laravel valet"
+composer global require laravel/valet
 
 #######################################
 # Install Laravel Installer
@@ -132,7 +144,7 @@ composer global require laravel/installer
 # Install Fusion Downloader
 #######################################
 action "installing fusioncms downloader"
-composer global require efelle/fusioncms-downloader
+composer global require efellemedia/fusioncms-downloader
 
 #######################################
 # Symlink Dotfiles

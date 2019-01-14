@@ -32,6 +32,8 @@ function install_node() {
     if [[ $? != 0 ]]; then
         action "node not found, installing via homebrew"
         brew install node
+        brew install nvm
+        mkdir ~./nvm
     fi
     ok
 }
@@ -42,6 +44,16 @@ function install_yarn() {
     if [[ $? != 0 ]]; then
         action "yarn not found, installing via homebrew"
         brew install yarn
+    fi
+    ok
+}
+
+function install_php() {
+    running "php -v"
+    php -v
+    if [[ $? != 0 ]]; then
+        action "php not found, installing via homebrew"
+        brew install php
     fi
     ok
 }
