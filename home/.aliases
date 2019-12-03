@@ -7,7 +7,7 @@ alias sudo='sudo '
 alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
 
 # Flush the DNS
-alias dnsflush="dscacheutil -flushcache"
+alias dnsflush="sudo killall -HUP mDNSResponder;sudo killall mDNSResponderHelper;sudo dscacheutil -flushcache"
 
 # Directory listings
 alias ls="ls -G -h -p"
